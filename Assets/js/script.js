@@ -20,6 +20,7 @@ function obtenerPresupuesto() {
   presupuesto.value = "";
 }
 
+
 function obtenerGastos() {
   let gastoMonto = document.querySelector("#montoGasto");
   let gastoNombre = document.querySelector("#tipoGasto");
@@ -54,13 +55,14 @@ function obtenerGastos() {
   });
 }
 
-function sumaGastos() {
+const sumaGastos = () => {
   let suma = 0;
   for (let i = 0; i < calculoGasto.length; i++) {
     suma += parseFloat(calculoGasto[i].monto);
   }
   return suma;
-}
+};
+
 
 function calcularSaldo() {
   let presupuesto = document.querySelector("#presupuesto");
