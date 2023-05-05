@@ -11,10 +11,56 @@ body {
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
+
+  #boxPresupuesto{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #ccfbcc;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    width: 40%;
+  }
+
+  #montoPresupuesto{
+    background-color: #ccfbcc;
+  }
+
+  #botonPresupuesto{
+    color: #3e8e41;
+    background-color: #ccfbcc;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+  }
+
+  #boxGasto{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #ffd6d6;
+    border: 2px solid red;
+    border-radius: 5px;
+    width: 40%;
+  }
+
+  #tipoGasto{
+    background-color: #ffd6d6;
+  }
+  #montoGasto{
+    background-color: #ffd6d6;
+  }
+
+  #botonGasto{
+    color: white;
+    background-color: red;
+    border: 2px solid pink;
+    border-radius: 5px;
+  }
   
   h1 {
+    margin-left: 20px;
     font-size: 36px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
   }
   

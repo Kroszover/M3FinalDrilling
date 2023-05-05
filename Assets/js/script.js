@@ -11,12 +11,12 @@ function Gasto(nombre, monto) {
 
 presupuesto2.addEventListener("click", obtenerPresupuesto);
 gastos2.addEventListener("click", obtenerGastos);
-setInterval(calcularSaldo, 500);
+setInterval(calcularSaldo, 100);
 
 function obtenerPresupuesto() {
   let presupuesto = document.querySelector("#montoPresupuesto");
   let prespuestoPantalla = document.querySelector("#presupuesto");
-  prespuestoPantalla.innerHTML = presupuesto.value;
+  prespuestoPantalla.innerHTML = "$"+presupuesto.value;
   presupuesto.value = "";
 }
 
@@ -35,7 +35,7 @@ function obtenerGastos() {
   let iconoEliminar = document.createElement("i");
 
   celdaNombre.textContent = gasto.nombre;
-  celdaValor.textContent = parseFloat(gasto.monto);
+  celdaValor.textContent = "$" + parseFloat(gasto.monto);
   iconoEliminar.classList.add("fas", "fa-trash-alt");
 
   celdaEliminar.appendChild(iconoEliminar);
@@ -60,21 +60,24 @@ const sumaGastos = () => {
   for (let i = 0; i < calculoGasto.length; i++) {
     suma += parseFloat(calculoGasto[i].monto);
   }
-  return suma;
+  return "$" + suma
 };
+
 
 
 function calcularSaldo() {
   let presupuesto = document.querySelector("#presupuesto");
   let gastos = document.querySelector("#gastos");
   let saldo = document.querySelector("#saldo");
-  let suma = sumaGastos();
-  gastos.innerHTML = suma;
-  saldo.innerHTML =
-    parseFloat(presupuesto.innerHTML) - parseFloat(gastos.innerHTML);
-  if (parseFloat(saldo.innerHTML) < 0) {
+  let suma = parseFloat(sumaGastos().replace("$", ""));
+  gastos.innerHTML = "$" + suma
+  saldo.innerHTML = "$" + (parseFloat(presupuesto.innerHTML.replace("$", "")) - suma)
+  if (parseFloat(saldo.innerHTML.replace("$", "")) < 0) {
     saldo.style.color = "red";
   } else {
     saldo.style.color = "green";
   }
 }
+
+
+
