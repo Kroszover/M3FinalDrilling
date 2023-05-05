@@ -91,3 +91,11 @@ body {
     margin-left: 10px;
   }
   
+
+  #tablaGastos{
+    margin-top: 20px;
+    padding: 10px;
+    justify-items: center;
+    width: 85%;
+    border-radius: 5px;
+  }

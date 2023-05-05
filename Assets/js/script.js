@@ -1,76 +1,78 @@
-
-console.log(presupuesto.value);
-const presupuesto2 = document.querySelector('#botonPresupuesto');
-const gastos2 = document.querySelector('#botonGasto');
+const presupuesto2 = document.querySelector("#botonPresupuesto");
+const gastos2 = document.querySelector("#botonGasto");
 var calculoGasto = [];
 
-function Gasto(nombre, monto) {
-    this.nombre = nombre;
-    this.monto = monto;
-}
-    
+const tablaGastosBody = document.querySelector("#tablaGastos tbody");
 
-presupuesto2.addEventListener('click', obtenerPresupuesto);
-gastos2.addEventListener('click', obtenerGastos);
+function Gasto(nombre, monto) {
+  this.nombre = nombre;
+  this.monto = monto;
+}
+
+presupuesto2.addEventListener("click", obtenerPresupuesto);
+gastos2.addEventListener("click", obtenerGastos);
 setInterval(calcularSaldo, 500);
 
-
-
-
-function obtenerPresupuesto(){
-    let presupuesto = document.querySelector('#montoPresupuesto');
-
-    console.log(presupuesto.value);
-
-    let prespuestoPantalla = document.querySelector('#presupuesto');
-    prespuestoPantalla.innerHTML = presupuesto.value;
-
+function obtenerPresupuesto() {
+  let presupuesto = document.querySelector("#montoPresupuesto");
+  let prespuestoPantalla = document.querySelector("#presupuesto");
+  prespuestoPantalla.innerHTML = presupuesto.value;
+  presupuesto.value = "";
 }
 
 function obtenerGastos() {
-    let gasto = document.querySelector('#montoGasto');
-    let nombreGasto = document.querySelector('#tipoGasto');
+  let gastoMonto = document.querySelector("#montoGasto");
+  let gastoNombre = document.querySelector("#tipoGasto");
+  let tablaGastos = document.querySelector("#tablaGastos");
+  let gasto = new Gasto(gastoNombre.value, gastoMonto.value);
+  calculoGasto.push(gasto);
 
-    let monto = parseInt(gasto.value);
-    let gastoN = new Gasto(nombreGasto.value, monto);
-    calculoGasto.push(gastoN);
+  let nuevaFila = document.createElement("tr");
+  let celdaNombre = document.createElement("td");
+  let celdaValor = document.createElement("td");
+  let celdaEliminar = document.createElement("td");
+  let iconoEliminar = document.createElement("i");
 
-    let gastoPantalla = document.querySelector('#gastos');
+  celdaNombre.textContent = gasto.nombre;
+  celdaValor.textContent = parseFloat(gasto.monto);
+  iconoEliminar.classList.add("fas", "fa-trash-alt");
 
-    gastoPantalla.innerHTML = gasto.value;
+  celdaEliminar.appendChild(iconoEliminar);
+  nuevaFila.appendChild(celdaNombre);
+  nuevaFila.appendChild(celdaValor);
+  nuevaFila.appendChild(celdaEliminar);
+  tablaGastosBody.appendChild(nuevaFila);
 
-    let nombreGastoPantalla = document.querySelector('#nombreGasto');
-    nombreGastoPantalla.innerHTML = nombreGasto.value;
+  gastoMonto.value = "";
+  gastoNombre.value = "";
 
-    console.log(calculoGasto);
+  // Agregar evento para eliminar el nuevo gasto
+  iconoEliminar.addEventListener("click", function () {
+    nuevaFila.parentNode.removeChild(nuevaFila);
+    calculoGasto.splice(calculoGasto.indexOf(gasto), 1);
+    calcularSaldo();
+  });
+}
 
-    let valorGasto = document.querySelector('#valorGasto');
-
-    valorGasto.innerHTML = gasto.value;
-
-
-    /*
-    // Crear elemento li
-    let nuevoGasto = document.createElement('li');
-    nuevoGasto.textContent = `${nombreGasto.value}: ${monto}`;
-    // Agregar elemento li a la lista ul correspondiente
-    let listaGastos = document.querySelector('#listaGastos');
-    listaGastos.appendChild(nuevoGasto);
-     */
-    // Actualizar saldo
-
-
+function sumaGastos() {
+  let suma = 0;
+  for (let i = 0; i < calculoGasto.length; i++) {
+    suma += parseFloat(calculoGasto[i].monto);
+  }
+  return suma;
 }
 
 function calcularSaldo() {
-    let saldo = document.querySelector('#saldo');
-    let gasto = document.querySelector('#montoGasto');
-    let presupuesto = document.querySelector('#montoPresupuesto');
-
-    saldo.innerHTML = presupuesto.value - gasto.value;
+  let presupuesto = document.querySelector("#presupuesto");
+  let gastos = document.querySelector("#gastos");
+  let saldo = document.querySelector("#saldo");
+  let suma = sumaGastos();
+  gastos.innerHTML = suma;
+  saldo.innerHTML =
+    parseFloat(presupuesto.innerHTML) - parseFloat(gastos.innerHTML);
+  if (parseFloat(saldo.innerHTML) < 0) {
+    saldo.style.color = "red";
+  } else {
+    saldo.style.color = "green";
+  }
 }
-
-
-
-
-
