@@ -1,6 +1,6 @@
 <h1>Presupuesto Personal</h1>
-<h2>Prueba la página aquí: </h2>
-https://kroszover.github.io/M3FinalDrilling/
+<h2>Prueba la página aquí: https://kroszover.github.io/M3FinalDrilling/</h2>
+
 Este es un proyecto para llevar el control de tu presupuesto personal y gastos. Correspondiente a la practica de consolidación del modulo 3. Con esta herramienta podrás ingresar tu presupuesto y tus gastos para poder calcular tu saldo disponible.
 
 <h2>Funcionamiento</h2>
