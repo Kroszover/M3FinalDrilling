@@ -1,9 +1,9 @@
 const presupuesto2 = document.querySelector("#botonPresupuesto");
 const gastos2 = document.querySelector("#botonGasto");
+const tablaGastosBody = document.querySelector("#tablaGastos tbody");
 var calculoGasto = [];
 
-const tablaGastosBody = document.querySelector("#tablaGastos tbody");
-
+//Función constructora para crear los objetos de tipo gasto
 function Gasto(nombre, monto) {
   this.nombre = nombre;
   this.monto = monto;
@@ -17,7 +17,7 @@ function obtenerPresupuesto() {
   let presupuesto = document.querySelector("#montoPresupuesto");
   let prespuestoPantalla = document.querySelector("#presupuesto");
   prespuestoPantalla.innerHTML = "$"+presupuesto.value;
-  presupuesto.value = "";
+  presupuesto.value = "$";
 }
 
 

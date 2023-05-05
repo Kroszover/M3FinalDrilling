@@ -3,13 +3,11 @@ body {
     background-color: #f7f7f7;
   }
   
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
   }
 
   #boxPresupuesto{
@@ -19,7 +17,8 @@ body {
     background-color: #ccfbcc;
     border: 2px solid #4CAF50;
     border-radius: 5px;
-    width: 40%;
+    grid-column: 1;
+    grid-row: 1;
   }
 
   #montoPresupuesto{
@@ -32,6 +31,7 @@ body {
     border: 2px solid #4CAF50;
     border-radius: 5px;
   }
+  
 
   #boxGasto{
     margin-top: 20px;
@@ -40,8 +40,40 @@ body {
     background-color: #ffd6d6;
     border: 2px solid red;
     border-radius: 5px;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #tablaBalance{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    grid-column: 2/3;
+    grid-row: 1;
+  }
+
+  #tablaBalance th{
+    width: 60%;
+  }
+  #tablaBalance td{
+    width: 60%;
+  }
+
+  #tablaGastos th{
+    width: 60%;
+  }
+  #tablaGastos td{
     width: 40%;
   }
+
+  #tablaGastos{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    grid-column: 2/3;
+    grid-row: 2;
+  }
+
 
   #tipoGasto{
     background-color: #ffd6d6;
@@ -78,19 +110,6 @@ body {
     width: 100%;
   }
   
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
   
   #presupuesto, #gastos, #saldo {
     font-size: 24px;
@@ -137,11 +156,3 @@ body {
     margin-left: 10px;
   }
   
-
-  #tablaGastos{
-    margin-top: 20px;
-    padding: 10px;
-    justify-items: center;
-    width: 85%;
-    border-radius: 5px;
-  }

@@ -17,10 +17,10 @@
 
     <h1>Presupuesto APP</h1>
 
-
+<div class="wrapper">
     <div id="boxPresupuesto">
         <div class="mb-3">
-           <strong> <label  for="montoPresupuesto" class="form-label">Ingresa tu Presupuesto</label></strong>
+            <strong> <label for="montoPresupuesto" class="form-label">Ingresa tu Presupuesto</label></strong>
             <input type="number" class="form-control" id="montoPresupuesto">
         </div>
         <button id="botonPresupuesto" class="btn btn-primary">Calcular</button>
@@ -28,46 +28,49 @@
 
     <div id="boxGasto">
         <div class="mb-3">
-           <strong> <label for="tipoGasto" class="form-label">Ingresa el nombre del gasto</label></strong>
+            <strong> <label for="tipoGasto" class="form-label">Ingresa el nombre del gasto</label></strong>
             <input type="text" class="form-control" id="tipoGasto">
         </div>
         <div class="mb-3">
-        <strong> <label for="montoGasto" class="form-label">Ingresa la cantidad del gasto</label></strong>
+            <strong> <label for="montoGasto" class="form-label">Ingresa la cantidad del gasto</label></strong>
             <input type="number" class="form-control" id="montoGasto">
         </div>
-    <strong><button id="botonGasto" class="btn btn-primary">Añadir Gasto</button></strong>
+        <strong><button id="botonGasto" class="btn btn-primary">Añadir Gasto</button></strong>
+    </div>
+
+    <div id="tablaBalance">
+        <table class="table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">PRESUPUESTO</th>
+                    <th scope="col">GASTOS</th>
+                    <th scope="col">SALDO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="presupuesto">0</td>
+                    <td id="gastos">0</td>
+                    <td id="saldo">0</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 
-    <table class="table-responsive">
-        <thead>
-            <tr>
-                <th scope="col">PRESUPUESTO</th>
-                <th scope="col">GASTOS</th>
-                <th scope="col">SALDO</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td id="presupuesto">0</td>
-                <td id="gastos">0</td>
-                <td id="saldo">0</td>
-            </tr>
-        </tbody>
-    </table>
-
-
-    <table class="table" id="tablaGastos">
-        <thead>
-            <tr>
-                <th scope="col">GASTO</th>
-                <th scope="col">VALOR</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody id="tablaGastosBody"></tbody>
-    </table>
-
+    <div id="tablaGastos">
+        <table class="table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">GASTO</th>
+                    <th scope="col">VALOR</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="tablaGastosBody"></tbody>
+        </table>
+    </div>
+</div>
 
 
 
@@ -79,7 +82,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/60088e8443.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/60088e8443.js" crossorigin="anonymous"></script>
     <script src="/Assets/js/script.js"></script>
 </body>
 
