@@ -3,6 +3,12 @@ const gastos2 = document.querySelector("#botonGasto");
 const tablaGastosBody = document.querySelector("#tablaGastos tbody");
 var calculoGasto = [];
 
+alert("Bienvenido a tu presupuesto personal, ingresa tu presupuesto y tus gastos para poder calcular tu saldo disponible\n Para comenzar, ingresa tu presupuesto en el campo de texto y presiona el botón 'Agregar presupuesto'\n Luego, ingresa tus gastos en el campo de texto y presiona el botón 'Agregar gasto'");
+
+alert("Para eliminar un gasto, presiona el ícono de la papelera");
+
+
+
 //Función constructora para crear los objetos de tipo gasto
 function Gasto(nombre, monto) {
   this.nombre = nombre;
